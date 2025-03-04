@@ -1,3 +1,16 @@
+// open close button 
+
+const menuOpenButton = document.querySelector("#menu-open-button");
+const menuCloseButton = document.querySelector("#menu-close-button");
+const navLinks = document.querySelectorAll(".nav-menu .nav-link");
+menuOpenButton.addEventListener("click", () => {
+  document.body.classList.toggle("show-mobile-menu");
+});
+menuCloseButton.addEventListener("click", () => menuOpenButton.click())
+navLinks.forEach(link => {
+  link.addEventListener("click", () => menuOpenButton.click())
+
+});
 // Correct Swiper Initialization
 const initSwiper = () => {
   new Swiper('.slider-container', {
@@ -23,10 +36,8 @@ const initSwiper = () => {
 // Mobile Menu Functionality
 document.addEventListener('DOMContentLoaded', () => {
   initSwiper();
-  
-  const menuOpenButton = document.querySelector("#menu-open-button");
-  const menuCloseButton = document.querySelector("#menu-close-button");
-  const navMenu = document.querySelector(".nav-menu");
+
+
 
   menuOpenButton.addEventListener("click", (e) => {
     e.stopPropagation();
